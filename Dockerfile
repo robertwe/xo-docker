@@ -40,11 +40,11 @@ RUN \
 
 COPY xo-server.yaml /etc/xo-server/config.yaml
 
-COPY main.css /opt/app/xo-web/dist/assets/main.css
-RUN \
-    sed -i 's/images\/logo_small.png/assets\/logo.png/' /opt/xo/server/signin.pug && \
-    sed -i 's/styles\/main.css/assets\/main.css/' /opt/xo/server/signin.pug && \
-    sed -i 's/favicon|fontawesome/favicon|fontawesome|assets/' /opt/xo/server/dist/index.js
+#COPY main.css /opt/xo/web/dist/assets/main.css
+#RUN \
+#    sed -i 's/images\/logo_small.png/assets\/logo.png/' /opt/xo/server/signin.pug && \
+#    sed -i 's/styles\/main.css/assets\/main.css/' /opt/xo/server/signin.pug && \
+#    sed -i 's/favicon|fontawesome/favicon|fontawesome|assets/' /opt/xo/server/dist/index.js
 USER xo_app
 
 WORKDIR /opt/xo

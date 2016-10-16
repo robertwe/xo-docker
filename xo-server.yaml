@@ -101,7 +101,7 @@ http:
 
   # List of files/directories which will be served.
   mounts:
-    '/': '../web/dist/'
+    '/': '/opt/xo/web/dist/'
 
   # List of proxied URLs (HTTP & WebSockets).
   proxies:
