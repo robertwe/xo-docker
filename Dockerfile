@@ -11,7 +11,7 @@ RUN \
     apk add nodejs curl wget bash git python gcc g++ make && \
     mkdir -p /opt/xo && \
     adduser -S xo_app -u 100 -G users -h /opt/xo && \
-    chown -R xo_app:nogroup /opt/xo && \
+    chown -R xo_app:users /opt/xo && \
     cd /opt/xo && \
     wget -O xo-server.tgz  https://github.com/vatesfr/xo-server/archive/v$XO_SERVER_VERSION.tar.gz && \
     wget -O xo-web.tgz https://github.com/vatesfr/xo-web/archive/v$XO_WEB_VERSION.tar.gz && \
@@ -31,8 +31,10 @@ RUN \
 
 RUN \
     mkdir -p /var/lib/xo-server/data && \
-    chown xo_app:nogroup -R /var/lib/xo-server/ && \
-    chown -R xo_app:nogroup /opt/xo/
+    mkdir -p /var/lib/xoa-backups && \
+    chown xo_app:users -R /var/lib/xo-server/ && \
+    chown xo_app:users -R /var/lib/xoa-backups && \
+    chown -R xo_app:users /opt/xo/
 
 RUN \
     npm install --global xo-server-backup-reports forever && \
