@@ -10,7 +10,7 @@ RUN \
     apk update && \
     apk add nodejs curl wget bash git python gcc g++ make && \
     mkdir -p /opt/xo && \
-    adduser -S xo_app -h /opt/xo && \
+    adduser -S xo_app -u 100 -G users -h /opt/xo && \
     chown -R xo_app:nogroup /opt/xo && \
     cd /opt/xo && \
     wget -O xo-server.tgz  https://github.com/vatesfr/xo-server/archive/v$XO_SERVER_VERSION.tar.gz && \
